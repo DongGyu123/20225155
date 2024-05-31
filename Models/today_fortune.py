@@ -25,14 +25,14 @@ class InputModel(BaseModel):
     context: str = Field(
         description='년도',
         default='2024',
-        alias='생년 년도',
+        alias='태어난 년도',
     )
     target_charactor: Literal[
         '1월', '2월','3월','4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월',
     ] = Field(
         default='1월',
         description='월',
-        alias='생년 월',
+        alias='태어난 달',
     )
     situation: Literal[
         '1일', '2일', '3일', '4일', '5일', '6일', '7일', '8일', '9일', '10일', '11일', '12일', '13일', 
@@ -41,7 +41,7 @@ class InputModel(BaseModel):
     ] = Field(
         default='1일',
         description='생년 일',
-        alias='생년 일',
+        alias='태어난 날짜',
     )
 
     llm_type: Literal['23:30~01:29', '1:30~3:29', '3:30~5:29', '5:30~7:29', '7:30~9:29', '9:30~11:29', '11:30~13:29', 
