@@ -5,7 +5,11 @@ from fastapi import APIRouter
 from llm.chat import build as build_chat
 from llm.image import build as build_drawer
 from llm.store import LLMStore
-from models.anime_characterize import InputModel, OutputModel
+import sys, os
+current_dir = os.path.dirname(os.path.abspath(__file__))  # 현재 스크립트 파일의 절대 경로
+grandparent_dir = os.path.dirname(os.path.dirname(current_dir))  # 이중 상위 디렉토리의 경로
+sys.path.append(grandparent_dir)
+from Models.anime_characterize import InputModel, OutputModel
 
 # Configure API router
 router = APIRouter(
