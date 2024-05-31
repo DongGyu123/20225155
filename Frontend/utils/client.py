@@ -1,7 +1,7 @@
 import httpx
 from pydantic import BaseModel, Field
 from pydantic_core import Url
-
+import json
 
 class MobileXClient(BaseModel):
     base_url: Url = Field(
@@ -19,6 +19,9 @@ class MobileXClient(BaseModel):
             json=input.model_dump(),
             timeout=300.0,
         )
+        json_data = input.model_dump()  # 전송할 데이터를 변수에 저장
+        print('Request data:', json_data)  # 전송할 데이터를 출력
+        print('respons url and data', response.url, type(response))
         data = response.json()
         if data is None:
             return None
